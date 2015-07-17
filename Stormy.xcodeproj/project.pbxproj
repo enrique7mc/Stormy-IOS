@@ -13,6 +13,8 @@
 		840C16E71B5947D800C3D7AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840C16E61B5947D800C3D7AE /* Images.xcassets */; };
 		840C16EA1B5947D800C3D7AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840C16E81B5947D800C3D7AE /* LaunchScreen.xib */; };
 		840C16F61B5947D800C3D7AE /* StormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C16F51B5947D800C3D7AE /* StormyTests.swift */; };
+		840C17021B59499000C3D7AE /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840C17011B59499000C3D7AE /* CurrentWeather.plist */; };
+		840C17041B5949FD00C3D7AE /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C17031B5949FD00C3D7AE /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		840C16EF1B5947D800C3D7AE /* StormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		840C16F41B5947D800C3D7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840C16F51B5947D800C3D7AE /* StormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StormyTests.swift; sourceTree = "<group>"; };
+		840C17011B59499000C3D7AE /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrentWeather.plist; sourceTree = "<group>"; };
+		840C17031B5949FD00C3D7AE /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				840C16DF1B5947D800C3D7AE /* AppDelegate.swift */,
 				840C16E11B5947D800C3D7AE /* ViewController.swift */,
+				840C17031B5949FD00C3D7AE /* CurrentWeather.swift */,
 				840C16E31B5947D800C3D7AE /* Main.storyboard */,
 				840C16E61B5947D800C3D7AE /* Images.xcassets */,
 				840C16E81B5947D800C3D7AE /* LaunchScreen.xib */,
@@ -90,6 +95,7 @@
 		840C16DD1B5947D800C3D7AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				840C17011B59499000C3D7AE /* CurrentWeather.plist */,
 				840C16DE1B5947D800C3D7AE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -193,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840C16E51B5947D800C3D7AE /* Main.storyboard in Resources */,
+				840C17021B59499000C3D7AE /* CurrentWeather.plist in Resources */,
 				840C16EA1B5947D800C3D7AE /* LaunchScreen.xib in Resources */,
 				840C16E71B5947D800C3D7AE /* Images.xcassets in Resources */,
 			);
@@ -213,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840C16E21B5947D800C3D7AE /* ViewController.swift in Sources */,
+				840C17041B5949FD00C3D7AE /* CurrentWeather.swift in Sources */,
 				840C16E01B5947D800C3D7AE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
