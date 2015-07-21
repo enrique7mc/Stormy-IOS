@@ -13,21 +13,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTemperatureLabel: UILabel?
     @IBOutlet weak var currentHumidityLabel: UILabel?
     @IBOutlet weak var currentPrecipitationLabel: UILabel?
+    
+    private let forecastKey = "807f790501f3841dd94c54f8ef1e7ff2"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastKey)/")
+        let forecastURL = NSURL(string: "19.42847,-99.12766", relativeToURL: baseURL)
         
-        if let plistPath = NSBundle.mainBundle().pathForResource("CurrentWeather", ofType: "plist"),
-            let weatherDictionary = NSDictionary(contentsOfFile: plistPath),
-            let currentWeatherDictionary = weatherDictionary["currently"] as? [String: AnyObject]{
-            
-            let currentWeather = CurrentWeather(weatherDictionary: currentWeatherDictionary)
-                
-            currentTemperatureLabel?.text = "\(currentWeather.temperature)º"
-            currentHumidityLabel?.text = "\(currentWeather.humidity)%"
-            currentPrecipitationLabel?.text = "\(currentWeather.precipProbability)%"
-        }
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: configuration)
+        
+        let request = NSURLRequest(URL: forecastURL!)
+        
+        let dataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+                println(data)
+        })
+        
+        dataTask.resume()
     }
 
     override func didReceiveMemoryWarning() {
