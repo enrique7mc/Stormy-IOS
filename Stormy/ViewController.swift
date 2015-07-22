@@ -29,17 +29,11 @@ class ViewController: UIViewController {
         
         let dataTask = session.dataTaskWithRequest(request,
             completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-                println(data)
+               
+                
         })
         
         dataTask.resume()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
