@@ -16,6 +16,7 @@
 		840C17021B59499000C3D7AE /* CurrentWeather.plist in Resources */ = {isa = PBXBuildFile; fileRef = 840C17011B59499000C3D7AE /* CurrentWeather.plist */; };
 		840C17041B5949FD00C3D7AE /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C17031B5949FD00C3D7AE /* CurrentWeather.swift */; };
 		8421E3F91B5FD7470031A75A /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E3F81B5FD7470031A75A /* NetworkOperation.swift */; };
+		8421E3FB1B5FE5280031A75A /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421E3FA1B5FE5280031A75A /* ForecastService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		840C17011B59499000C3D7AE /* CurrentWeather.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CurrentWeather.plist; sourceTree = "<group>"; };
 		840C17031B5949FD00C3D7AE /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		8421E3F81B5FD7470031A75A /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
+		8421E3FA1B5FE5280031A75A /* ForecastService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +88,12 @@
 				840C16DF1B5947D800C3D7AE /* AppDelegate.swift */,
 				840C16E11B5947D800C3D7AE /* ViewController.swift */,
 				840C17031B5949FD00C3D7AE /* CurrentWeather.swift */,
+				8421E3F81B5FD7470031A75A /* NetworkOperation.swift */,
+				8421E3FA1B5FE5280031A75A /* ForecastService.swift */,
 				840C16E31B5947D800C3D7AE /* Main.storyboard */,
 				840C16E61B5947D800C3D7AE /* Images.xcassets */,
 				840C16E81B5947D800C3D7AE /* LaunchScreen.xib */,
 				840C16DD1B5947D800C3D7AE /* Supporting Files */,
-				8421E3F81B5FD7470031A75A /* NetworkOperation.swift */,
 			);
 			path = Stormy;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				8421E3F91B5FD7470031A75A /* NetworkOperation.swift in Sources */,
 				840C16E21B5947D800C3D7AE /* ViewController.swift in Sources */,
 				840C17041B5949FD00C3D7AE /* CurrentWeather.swift in Sources */,
+				8421E3FB1B5FE5280031A75A /* ForecastService.swift in Sources */,
 				840C16E01B5947D800C3D7AE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
