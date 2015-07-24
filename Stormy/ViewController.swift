@@ -10,9 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var currentWeatherIcon: UIImageView?
     @IBOutlet weak var currentTemperatureLabel: UILabel?
     @IBOutlet weak var currentHumidityLabel: UILabel?
     @IBOutlet weak var currentPrecipitationLabel: UILabel?
+    @IBOutlet weak var currentWeatherSummary: UILabel?
+    
     
     private let forecastKey = "807f790501f3841dd94c54f8ef1e7ff2"
     let coordinate: (lat: Double, long: Double) = (19.42847,-99.12766)
@@ -34,6 +37,14 @@ class ViewController: UIViewController {
                     
                     if let precipitation = currentWeather.precipProbability {
                         self.currentPrecipitationLabel?.text = "\(precipitation)%"
+                    }
+                    
+                    if let icon = currentWeather.icon {
+                        self.currentWeatherIcon?.image = icon
+                    }
+                    
+                    if let summary = currentWeather.summary {
+                        self.currentWeatherSummary?.text = summary
                     }
                 }
             }
