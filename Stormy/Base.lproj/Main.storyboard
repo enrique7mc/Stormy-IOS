@@ -60,11 +60,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLp-KZ-3tD">
-                                <rect key="frame" x="256" y="511" width="88" height="26"/>
+                                <rect key="frame" x="256" y="534" width="88" height="26"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mL-4G-2oI">
+                                <rect key="frame" x="279" y="50" width="43" height="43"/>
+                                <state key="normal" image="refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.29019607843137252" green="0.56470588235294117" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,14 +81,17 @@
                             <constraint firstItem="BdQ-3V-kBg" firstAttribute="top" secondItem="IfX-6u-Evr" secondAttribute="bottom" constant="55" id="Aj0-rM-JUg"/>
                             <constraint firstItem="Mz7-mS-DH7" firstAttribute="top" secondItem="Gya-7D-Ipf" secondAttribute="bottom" constant="9" id="DVG-5X-ubb"/>
                             <constraint firstItem="Gya-7D-Ipf" firstAttribute="centerX" secondItem="Mz7-mS-DH7" secondAttribute="centerX" id="GNO-df-7hV"/>
+                            <constraint firstItem="MLp-KZ-3tD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VDZ-0h-U0F" secondAttribute="bottom" constant="30" id="ISe-hv-f2y"/>
                             <constraint firstAttribute="centerY" secondItem="BdQ-3V-kBg" secondAttribute="centerY" id="JEE-Rb-2Op"/>
                             <constraint firstAttribute="centerX" secondItem="YmA-iY-gso" secondAttribute="centerX" constant="80" id="MlD-Eo-ucr"/>
                             <constraint firstItem="Gya-7D-Ipf" firstAttribute="top" secondItem="BdQ-3V-kBg" secondAttribute="bottom" constant="6" id="RaR-j8-znP"/>
                             <constraint firstItem="VDZ-0h-U0F" firstAttribute="centerX" secondItem="OgW-R0-9JF" secondAttribute="centerX" constant="-0.5" id="Tmj-LT-57a"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MLp-KZ-3tD" secondAttribute="bottom" constant="63" id="VSH-2b-Y3s"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MLp-KZ-3tD" secondAttribute="bottom" priority="750" constant="40" id="VSH-2b-Y3s"/>
+                            <constraint firstAttribute="centerX" secondItem="8mL-4G-2oI" secondAttribute="centerX" id="VcZ-1m-ZzI"/>
                             <constraint firstAttribute="centerX" secondItem="BdQ-3V-kBg" secondAttribute="centerX" id="bHo-au-8TB"/>
                             <constraint firstItem="IfX-6u-Evr" firstAttribute="leading" secondItem="YmA-iY-gso" secondAttribute="trailing" constant="8" id="jSs-H0-qjB"/>
                             <constraint firstAttribute="centerX" secondItem="MLp-KZ-3tD" secondAttribute="centerX" id="lV1-c4-SJo"/>
+                            <constraint firstItem="8mL-4G-2oI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="ltj-H5-HwP"/>
                             <constraint firstItem="BdQ-3V-kBg" firstAttribute="top" secondItem="YmA-iY-gso" secondAttribute="bottom" constant="37" id="wdb-4M-bnQ"/>
                             <constraint firstAttribute="centerX" secondItem="Gya-7D-Ipf" secondAttribute="centerX" constant="-80" id="xds-Az-8JS"/>
                         </constraints>
@@ -101,5 +110,6 @@
     </scenes>
     <resources>
         <image name="default" width="30" height="30"/>
+        <image name="refresh" width="43" height="43"/>
     </resources>
 </document>
