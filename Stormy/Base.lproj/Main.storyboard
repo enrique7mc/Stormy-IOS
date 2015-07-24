@@ -70,15 +70,23 @@
                                 <state key="normal" image="refresh">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="refreshWeather" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Dxb-3F-R33"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Qyp-zv-r8b">
+                                <rect key="frame" x="290" y="62" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.29019607843137252" green="0.56470588235294117" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="8mL-4G-2oI" firstAttribute="centerX" secondItem="Qyp-zv-r8b" secondAttribute="centerX" constant="0.5" id="3qi-cq-PRc"/>
                             <constraint firstAttribute="centerX" secondItem="OgW-R0-9JF" secondAttribute="centerX" constant="65" id="5ku-lM-cfn"/>
+                            <constraint firstItem="8mL-4G-2oI" firstAttribute="centerY" secondItem="Qyp-zv-r8b" secondAttribute="centerY" constant="-0.5" id="8If-c8-OfH"/>
                             <constraint firstItem="VDZ-0h-U0F" firstAttribute="top" secondItem="OgW-R0-9JF" secondAttribute="bottom" constant="9" id="9DC-En-MZ3"/>
                             <constraint firstItem="OgW-R0-9JF" firstAttribute="top" secondItem="BdQ-3V-kBg" secondAttribute="bottom" constant="6" id="A6N-YO-znS"/>
-                            <constraint firstItem="BdQ-3V-kBg" firstAttribute="top" secondItem="IfX-6u-Evr" secondAttribute="bottom" constant="55" id="Aj0-rM-JUg"/>
+                            <constraint firstItem="BdQ-3V-kBg" firstAttribute="top" relation="lessThanOrEqual" secondItem="IfX-6u-Evr" secondAttribute="bottom" constant="55" id="Aj0-rM-JUg"/>
                             <constraint firstItem="Mz7-mS-DH7" firstAttribute="top" secondItem="Gya-7D-Ipf" secondAttribute="bottom" constant="9" id="DVG-5X-ubb"/>
                             <constraint firstItem="Gya-7D-Ipf" firstAttribute="centerX" secondItem="Mz7-mS-DH7" secondAttribute="centerX" id="GNO-df-7hV"/>
                             <constraint firstItem="MLp-KZ-3tD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VDZ-0h-U0F" secondAttribute="bottom" constant="30" id="ISe-hv-f2y"/>
@@ -89,19 +97,23 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MLp-KZ-3tD" secondAttribute="bottom" priority="750" constant="40" id="VSH-2b-Y3s"/>
                             <constraint firstAttribute="centerX" secondItem="8mL-4G-2oI" secondAttribute="centerX" id="VcZ-1m-ZzI"/>
                             <constraint firstAttribute="centerX" secondItem="BdQ-3V-kBg" secondAttribute="centerX" id="bHo-au-8TB"/>
+                            <constraint firstItem="IfX-6u-Evr" firstAttribute="top" secondItem="8mL-4G-2oI" secondAttribute="bottom" constant="33" id="e4k-aY-meH"/>
                             <constraint firstItem="IfX-6u-Evr" firstAttribute="leading" secondItem="YmA-iY-gso" secondAttribute="trailing" constant="8" id="jSs-H0-qjB"/>
                             <constraint firstAttribute="centerX" secondItem="MLp-KZ-3tD" secondAttribute="centerX" id="lV1-c4-SJo"/>
                             <constraint firstItem="8mL-4G-2oI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="ltj-H5-HwP"/>
-                            <constraint firstItem="BdQ-3V-kBg" firstAttribute="top" secondItem="YmA-iY-gso" secondAttribute="bottom" constant="37" id="wdb-4M-bnQ"/>
+                            <constraint firstItem="YmA-iY-gso" firstAttribute="top" secondItem="8mL-4G-2oI" secondAttribute="bottom" constant="15" id="rPe-5R-hT1"/>
+                            <constraint firstItem="BdQ-3V-kBg" firstAttribute="top" relation="lessThanOrEqual" secondItem="YmA-iY-gso" secondAttribute="bottom" constant="37" id="wdb-4M-bnQ"/>
                             <constraint firstAttribute="centerX" secondItem="Gya-7D-Ipf" secondAttribute="centerX" constant="-80" id="xds-Az-8JS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="Qyp-zv-r8b" id="6zT-DL-qW8"/>
                         <outlet property="currentHumidityLabel" destination="VDZ-0h-U0F" id="3hK-CF-nW6"/>
                         <outlet property="currentPrecipitationLabel" destination="Mz7-mS-DH7" id="oZ6-2w-be7"/>
                         <outlet property="currentTemperatureLabel" destination="BdQ-3V-kBg" id="Kg5-E2-rey"/>
                         <outlet property="currentWeatherIcon" destination="YmA-iY-gso" id="lZf-Ti-qzi"/>
                         <outlet property="currentWeatherSummary" destination="MLp-KZ-3tD" id="A7Y-wl-8kW"/>
+                        <outlet property="refreshButton" destination="8mL-4G-2oI" id="kmI-bp-Mjq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

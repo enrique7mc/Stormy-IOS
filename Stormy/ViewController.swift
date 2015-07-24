@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentHumidityLabel: UILabel?
     @IBOutlet weak var currentPrecipitationLabel: UILabel?
     @IBOutlet weak var currentWeatherSummary: UILabel?
+    @IBOutlet weak var refreshButton: UIButton?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     
     private let forecastKey = "807f790501f3841dd94c54f8ef1e7ff2"
@@ -22,6 +24,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        retrieveWeatherForecast()
+    }
+    
+    func retrieveWeatherForecast() {
         let forecastService = ForecastService(APIKey: forecastKey)
         forecastService.getForecast(coordinate.lat, long: coordinate.long) {
             (let currently) in
@@ -46,9 +52,25 @@ class ViewController: UIViewController {
                     if let summary = currentWeather.summary {
                         self.currentWeatherSummary?.text = summary
                     }
+                    
+                    self.toggleRefreshAnimation(false)
                 }
             }
-            
+        }
+    }
+    
+    
+    @IBAction func refreshWeather() {
+        toggleRefreshAnimation(true)
+        retrieveWeatherForecast()
+    }
+    
+    func toggleRefreshAnimation(on: Bool) {
+        refreshButton?.hidden = on
+        if on {
+            activityIndicator?.startAnimating()
+        } else {
+            activityIndicator?.stopAnimating()
         }
     }
 }
