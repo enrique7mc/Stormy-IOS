@@ -17,25 +17,16 @@ struct ForecastService {
         forecastBaseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)/")
     }
     
-    func getForecast(lat: Double, long: Double, completion: (CurrentWeather? -> Void)) {
+    func getForecast(lat: Double, long: Double, completion: (Forecast? -> Void)) {
         if let forecastURL = NSURL(string: "\(lat),\(long)", relativeToURL: forecastBaseURL) {
             let networkOperation = NetworkOperation(url: forecastURL)
             networkOperation.downloadJSONFromURL {
-                (let JSONDictonary) in
-                let currentWeather = self.currentWeatherFromJSONDictonary(JSONDictonary)
+                (let JSONDictionary) in
+                let forecast = Forecast(weatherDictionary: JSONDictionary)
                 completion(currentWeather)
             }
         } else {
             println("Could not construct a valid URL")
-        }
-    }
-    
-    func currentWeatherFromJSONDictonary(jsonDictonary: [String: AnyObject]?) -> CurrentWeather? {
-        if let currentWeatherDictionary = jsonDictonary?["currently"] as? [String: AnyObject] {
-            return CurrentWeather(weatherDictionary: currentWeatherDictionary)
-        } else {
-            println("JSON dictonary returned nil for 'currently' key")
-            return nil
         }
     }
 }
