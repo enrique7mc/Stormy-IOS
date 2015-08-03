@@ -23,7 +23,7 @@ struct ForecastService {
             networkOperation.downloadJSONFromURL {
                 (let JSONDictionary) in
                 let forecast = Forecast(weatherDictionary: JSONDictionary)
-                completion(currentWeather)
+                completion(forecast)
             }
         } else {
             println("Could not construct a valid URL")
