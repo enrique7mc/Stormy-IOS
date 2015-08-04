@@ -10,7 +10,7 @@
         <scene sceneID="FaP-q5-7kK">
             <objects>
                 <tableViewController id="dF8-1V-XaI" customClass="WeeklyTableViewController" customModule="Stormy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IRw-9J-aXh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IRw-9J-aXh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,13 +83,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="L0J-zX-MVg">
-                                            <rect key="frame" x="258" y="12" width="40" height="40"/>
+                                            <rect key="frame" x="258" y="12" width="41" height="41"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="L0J-zX-MVg" secondAttribute="height" multiplier="1:1" id="ALb-0Z-csp"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9z-EM-w0l">
-                                            <rect key="frame" x="321" y="21" width="90" height="22"/>
+                                            <rect key="frame" x="322" y="21" width="90" height="22"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -107,7 +107,7 @@
                                         <constraint firstItem="0RK-fK-Cl8" firstAttribute="top" secondItem="gZP-rF-eSt" secondAttribute="topMargin" constant="3" id="upe-wH-uDv"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dayLabel" destination="H9z-EM-w0l" id="Atg-my-VpU"/>
                                     <outlet property="temperatureLabel" destination="h03-tZ-rs9" id="udk-Gw-3EV"/>
