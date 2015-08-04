@@ -2,12 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UG1-oG-n6z">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Weekly-->
         <scene sceneID="FaP-q5-7kK">
             <objects>
-                <tableViewController id="dF8-1V-XaI" customClass="WeeklyTableTableViewController" customModule="Stormy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dF8-1V-XaI" customClass="WeeklyTableViewController" customModule="Stormy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IRw-9J-aXh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,12 +65,53 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6RH-gZ-YMn">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="64" id="6RH-gZ-YMn" customClass="DailyWeatherTableViewCell" customModule="Stormy" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6RH-gZ-YMn" id="gZP-rF-eSt">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temperatureIconBG" translatesAutoresizingMaskIntoConstraints="NO" id="0RK-fK-Cl8">
+                                            <rect key="frame" x="191" y="11" width="42" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="0RK-fK-Cl8" secondAttribute="height" multiplier="20:21" id="3tY-ex-UdO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h03-tZ-rs9">
+                                            <rect key="frame" x="203" y="24" width="18" height="15"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" red="0.074509803921568626" green="0.054901960784313725" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="L0J-zX-MVg">
+                                            <rect key="frame" x="258" y="12" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="L0J-zX-MVg" secondAttribute="height" multiplier="1:1" id="ALb-0Z-csp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9z-EM-w0l">
+                                            <rect key="frame" x="321" y="21" width="90" height="22"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="h03-tZ-rs9" firstAttribute="centerX" secondItem="0RK-fK-Cl8" secondAttribute="centerX" id="25u-YN-fjU"/>
+                                        <constraint firstAttribute="centerY" secondItem="H9z-EM-w0l" secondAttribute="centerY" id="59z-rq-W8J"/>
+                                        <constraint firstItem="H9z-EM-w0l" firstAttribute="leading" secondItem="L0J-zX-MVg" secondAttribute="trailing" constant="23" id="EcH-Jh-UKO"/>
+                                        <constraint firstAttribute="centerX" secondItem="L0J-zX-MVg" secondAttribute="centerX" constant="22" id="Gne-Jw-7t5"/>
+                                        <constraint firstAttribute="centerX" secondItem="0RK-fK-Cl8" secondAttribute="centerX" constant="88" id="Jtn-f3-9Ef"/>
+                                        <constraint firstItem="h03-tZ-rs9" firstAttribute="centerY" secondItem="0RK-fK-Cl8" secondAttribute="centerY" constant="-1.5" id="OLr-YC-hy7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="L0J-zX-MVg" secondAttribute="bottom" constant="3" id="kxR-8l-WZy"/>
+                                        <constraint firstItem="L0J-zX-MVg" firstAttribute="top" secondItem="gZP-rF-eSt" secondAttribute="topMargin" constant="4" id="pGb-aP-c0z"/>
+                                        <constraint firstItem="0RK-fK-Cl8" firstAttribute="top" secondItem="gZP-rF-eSt" secondAttribute="topMargin" constant="3" id="upe-wH-uDv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="dayLabel" destination="H9z-EM-w0l" id="Atg-my-VpU"/>
+                                    <outlet property="temperatureLabel" destination="h03-tZ-rs9" id="udk-Gw-3EV"/>
+                                    <outlet property="weatherIcon" destination="L0J-zX-MVg" id="FsR-ab-f3s"/>
                                     <segue destination="vXZ-lx-hvc" kind="show" id="lps-9c-rLB"/>
                                 </connections>
                             </tableViewCell>
@@ -131,5 +174,6 @@
     </scenes>
     <resources>
         <image name="clear-day" width="58" height="60"/>
+        <image name="temperatureIconBG" width="42" height="43"/>
     </resources>
 </document>

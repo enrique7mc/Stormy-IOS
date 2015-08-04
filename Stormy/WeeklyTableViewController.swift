@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
-class WeeklyTableTableViewController: UITableViewController {
+class WeeklyTableViewController: UITableViewController {
 
     @IBOutlet weak var currentTemperatureLabel: UILabel!
     @IBOutlet weak var currentWeatherIcon: UIImageView!
@@ -17,6 +18,8 @@ class WeeklyTableTableViewController: UITableViewController {
     
     let coordinate: (lat: Double, long: Double) = (19.42847,-99.12766)
     private let forecastKey = "807f790501f3841dd94c54f8ef1e7ff2"
+    
+    var weeklyWeather: [DailyWeather] = []
     
     
     override func viewDidLoad() {
@@ -28,6 +31,8 @@ class WeeklyTableTableViewController: UITableViewController {
     func configureView() {
         // set tableview background view
         tableView.backgroundView = BackgroundView()
+        
+        tableView.rowHeight = 64
         
         // change font and size
         if let navBarFont = UIFont(name: "HelveticaNeue-Thin", size: 20.0) {
@@ -49,15 +54,29 @@ class WeeklyTableTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return weeklyWeather.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCell") as! DailyWeatherTableViewCell
+        
+        let dailyWeather = weeklyWeather[indexPath.row]
+        
+        if let maxTemp = dailyWeather.maxTemperature {
+            cell.temperatureLabel.text = "\(maxTemp)º"
+        }
+        
+        cell.weatherIcon.image = dailyWeather.icon
+        cell.dayLabel.text = dailyWeather.day
+        
+        return cell
     }
 
     // MARK: - Weather Fetching
@@ -65,8 +84,9 @@ class WeeklyTableTableViewController: UITableViewController {
     func retrieveWeatherForecast() {
         let forecastService = ForecastService(APIKey: forecastKey)
         forecastService.getForecast(coordinate.lat, long: coordinate.long) {
-            (let currently) in
-            if let currentWeather = currently {
+            (let forecast) in
+            if let weatherForecast = forecast ,
+                let currentWeather = weatherForecast.currentWeather {
                 dispatch_async(dispatch_get_main_queue()) {
                     if let temperature = currentWeather.temperature {
                         self.currentTemperatureLabel?.text = "\(temperature)º"
@@ -79,6 +99,15 @@ class WeeklyTableTableViewController: UITableViewController {
                     if let icon = currentWeather.icon {
                         self.currentWeatherIcon?.image = icon
                     }
+                    
+                    self.weeklyWeather = weatherForecast.weekly
+                    
+                    if let highTemp = self.weeklyWeather.first?.maxTemperature,
+                        let lowTemp = self.weeklyWeather.first?.minTemperature {
+                            self.currentTemperatureRangeLabel?.text = "↑\(highTemp)º ↓\(lowTemp)º"
+                    }
+                    
+                    self.tableView.reloadData()
                 }
             }
         }
